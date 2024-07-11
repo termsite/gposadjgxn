@@ -1,1 +1,1 @@
-# gposadjgxn
+loadstring(game:HttpGet(""))()
