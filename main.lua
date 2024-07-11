@@ -10,15 +10,15 @@ local Window = Rayfield:CreateWindow({
       FileName = "Sazzy Sigma GUI"
    },
    Discord = {
-      Enabled = True,
-      Invite = "https://discord.gg/zTK6wY3umX", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      Enabled = true,
+      Invite = "zTK6wY3umX", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "Sazzy Universal",
       Subtitle = "Sazzy | Key System",
-      Note = "Get Key from discord server! https://discord.gg/zTK6wY3umX",
+      Note = "Get Key: discord.gg/zTK6wY3umX",
       FileName = "Sazzy Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
@@ -27,8 +27,14 @@ local Window = Rayfield:CreateWindow({
 })
 
 local MainTab = Window:CreateTab("Home", nil) -- Title, Image
+local BfTab = Window:CreateTab("Blox Fruits", nil)
+local AimTab = Window:CreateTab("Aimbot", nil)
 local MiscTab = Window:CreateTab("Misc", nil) 
+local CredTab = Window:CreateTab("Credits", nil)
+local AimbotSection = AimTab:CreateSection("Aimbot")
+local CredSection = CredTab:CreateSection("Credits:")
 local MainSection = MainTab:CreateSection("Main")
+local BasicSection = BfTab:CreateSection("Basic")
 local MiscSection = MiscTab:CreateSection("Misc") 
 
 Rayfield:Notify({
@@ -53,10 +59,21 @@ local Button = MiscTab:CreateButton({
    end,
 })
 
+local Label = CredTab:CreateLabel("Creator: Sazzy")
+local Label = CredTab:CreateLabel("Gui Core: Rayfield/Sirius")
+local Label = CredTab:CreateLabel("Other creds are made in noti's on buttons.")
+
 local Button = MiscTab:CreateButton({
    Name = "Universal Sword Reach",
    Callback = function()
    loadstring(game:HttpGet("https://pastebin.com/raw/v85uKg67", true))()
+   end,
+})
+
+local Button = AimTab:CreateButton({
+   Name = "Button Example",
+   Callback = function()
+   
    end,
 })
 
@@ -151,5 +168,7 @@ game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
         end
     end
 end)
+
+        
    end,
 })
